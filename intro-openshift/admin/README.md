@@ -1,0 +1,3 @@
+# Administration for OpenShift class
+
+
