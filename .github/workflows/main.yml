@@ -4,11 +4,14 @@ on:
   workflow_dispatch:
 
 jobs:
-  login:
+  openshift-job:
     name: OpenShift Login and Test
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     env:
       TEST_NAMESPACE: bryant-test
+      IMAGE_PATH: quay.io/diagrawa/petclinic:latest
+      APP_NAME: petclinic
+      APP_PORT: 8080
     
     steps:
       - name: Login to OpenShift
@@ -18,4 +21,16 @@ jobs:
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
           insecure_skip_tls_verify: true
           namespace: ${{ env.TEST_NAMESPACE }}
+
+      - name: Create and expose an app
+        id: oc-new-app
+        uses: ./
+        with:
+          app_name: ${{ env.APP_NAME }}
+          image: ${{ env.IMAGE_PATH }}
+          namespace: ${{ env.TEST_NAMESPACE }}
+          port: ${{ env.APP_PORT }}
+
+
+  
 
