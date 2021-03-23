@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        id: commit-data
-        uses: redhat-actions/common/commit-data@v1
 
       - name: Login to OpenShift
         uses: redhat-actions/oc-login@v1 
