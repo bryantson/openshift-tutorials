@@ -11,10 +11,8 @@ jobs:
       TEST_NAMESPACE: bryant-test
     
     steps:
-      - uses: redhat-actions/oc-login@v1
-    
-      - name: Login and set context
-        uses: ./
+      - name: Login to OpenShift
+        uses: redhat-actions/oc-login@v1 
         with:
           openshift_server_url: ${{ secrets.OPENSHIFT_SERVER }}
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
