@@ -26,8 +26,7 @@ jobs:
           namespace: ${{ env.TEST_NAMESPACE }}
 
       - name: Create and expose an app
-        id: oc-new-app
-        uses: ./
+        uses: redhat-actions/oc-new-app@v1
         with:
           app_name: ${{ env.APP_NAME }}
           image: ${{ env.IMAGE_PATH }}
