@@ -11,7 +11,7 @@ jobs:
       TEST_NAMESPACE: bryant-test
     
     steps:
-      - user: redhat-actions/oc-login@v1
+      - uses: redhat-actions/oc-login@v1
     
       - name: Login and set context
         uses: ./
