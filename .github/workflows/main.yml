@@ -3,6 +3,7 @@ on:
   push:
   workflow_dispatch:
 
+# Update
 jobs:
   openshift-job:
     name: OpenShift Login and Test
